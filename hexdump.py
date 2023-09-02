@@ -34,7 +34,7 @@ def main():
     for i in range(ln):
       hexNum = f"{data[i]:02x}".upper();
 
-      if (data[i] >= 32 and data[i] < 128):
+      if (data[i] >= 32 and data[i] < 127):
         chars[counter] = data[i];
       else:
         chars[counter] = -1;
