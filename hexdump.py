@@ -31,6 +31,8 @@ def main():
 
     chars = [ -1 ] * 16;
 
+    groupSpaces = 0;
+    
     for i in range(ln):
       hexNum = f"{data[i]:02x}".upper();
 
@@ -45,6 +47,7 @@ def main():
       offset += 1;
 
       if (counter == 8):
+        groupSpaces = 1;
         print(" ", end="");
 
       if (counter == 16):
@@ -57,9 +60,10 @@ def main():
         print("");
         print(f"{offset:0{padding}x}  ", end="");
         counter = 0;
+        groupSpaces = 0;
 
     if (counter > 0):
-      additionalSpaces = lineWidth - 18 - (counter * 2 + (counter - 1)) - padding - 3;
+      additionalSpaces = lineWidth - 18 - (counter * 2 + (counter - 1)) - padding - (3 + groupSpaces);
       spaces = " " * additionalSpaces;
       print(f"{ spaces }", end="");
       print("|", end="");
